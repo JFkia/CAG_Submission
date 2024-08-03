@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Add Contacts Example</title>
+    <style>
+        .navbar-brand img {
+            max-width: 50%;
+        }
+        .navbar-nav .nav-item {
+            padding-right: 50px;
+        }        
+        .inline {
+            padding-left: 40px;
+        }
+        .contact {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f8f9fa;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .contact:hover {
+            background-color: #e2e6ea;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><img src="public/home2.png" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pay.html">Pay!</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="qr.html">ScanQR</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="topup.html">TopUp!</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ...
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="currencies.html">Currencies</a>
+                      <a class="dropdown-item" href="account.html">Account</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="settings.html">Settings</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Pay!</h1>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center"> <!-- Adjusted to col-md-8 for wider form -->
+                    <form class="form-inline justify-content-center">
+                        <input class="form-control mr-2 flex-grow-1" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>    
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="jf-container">
+                        <div class="jf left">
+                            <p>Recent</p>
+                            <br>
+                            <div id="contactList" class="inline">
+                                <div class="contact" onclick="window.location.href='transfer.html'">
+                                    <p>John</p>
+                                    <p>+65 9123 4567</p>
+                                </div>
+                                <div class="contact" onclick="window.location.href='transfer.html'">
+                                    <p>Winston</p>
+                                    <p>+65 9111 1111</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <p3>Add a New Contact</p3>
+                    <input type="text" id="name" class="form-control mb-2" placeholder="Enter Name">
+                    <input type="text" id="phone" class="form-control mb-2" placeholder="Enter Phone Number">
+                    <button class="btn btn-primary" onclick="addContact()">Add Contact</button>
+                </div>
+            </div>
+        </div>    
+    </div>
+
+    <script>
+        function addContact() {
+            var name = document.getElementById('name').value;
+            var phone = document.getElementById('phone').value;
+
+            if (name && phone) {
+                var contactList = document.getElementById('contactList');
+
+                var newContact = document.createElement('div');
+                newContact.className = 'contact';
+                newContact.setAttribute('onclick', "window.location.href='transfer.html'");
+
+                var nameParagraph = document.createElement('p');
+                nameParagraph.innerText = name;
+
+                var phoneParagraph = document.createElement('p');
+                phoneParagraph.innerText = phone;
+
+                newContact.appendChild(nameParagraph);
+                newContact.appendChild(phoneParagraph);
+
+                contactList.appendChild(newContact);
+
+                // Clear the input fields
+                document.getElementById('name').value = '';
+                document.getElementById('phone').value = '';
+            } else {
+                alert("Please enter both name and phone number.");
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

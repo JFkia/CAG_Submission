@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Remittance Countries</title>
+    <style>
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .sticky + .content {
+            padding-top: 60px;
+        }
+        .navbar-brand img {
+            max-width: 50%;
+        }
+        .navbar-nav .nav-item {
+            padding-right: 50px;
+        }
+        .country-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .country-list li {
+            padding: 10px 0;
+        }
+        .country-list a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .country-list a:hover {
+            text-decoration: underline;
+        }
+        .country-section {
+            padding: 20px;
+            margin-top: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .country-section h2 {
+            margin-bottom: 10px;
+        }
+        .country-section p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="intro.html"><img src="public/home2.png" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pay.html">Pay!</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="qr.html">ScanQR</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="topup.html">TopUp!</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ...
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="currencies.html">Currencies</a>
+                    <a class="dropdown-item" href="account.html">Account</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="settings.html">Settings</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br><br>
+    <br><br><br><br>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-4 country-list">
+                <h2>List of Countries for Remittance</h2>
+                <ul>
+                    <li><a href="#india">India</a></li>
+                    <li><a href="#china">China</a></li>
+                    <li><a href="#mexico">Mexico</a></li>
+                    <li><a href="#philippines">Philippines</a></li>
+                    <li><a href="#egypt">Egypt</a></li>
+                    <li><a href="#nigeria">Nigeria</a></li>
+                    <li><a href="#pakistan">Pakistan</a></li>
+                    <li><a href="#bangladesh">Bangladesh</a></li>
+                    <li><a href="#vietnam">Vietnam</a></li>
+                    <li><a href="#ukraine">Ukraine</a></li>
+                    <li><a href="#russia">Russia</a></li>
+                    <li><a href="#morocco">Morocco</a></li>
+                    <li><a href="#ghana">Ghana</a></li>
+                    <li><a href="#kenya">Kenya</a></li>
+                    <li><a href="#sri-lanka">Sri Lanka</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="india" class="country-section">
+                    <h2>India</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to India.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 74.85 INR</p>
+                </div>
+                <div id="china" class="country-section">
+                    <h2>China</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to China.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 6.47 CNY</p>
+                </div>
+                <div id="mexico" class="country-section">
+                    <h2>Mexico</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to Mexico.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 20.05 MXN</p>
+                </div>
+                <div id="philippines" class="country-section">
+                    <h2>Philippines</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to the Philippines.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 50.22 PHP</p>
+                </div>
+                <div id="egypt" class="country-section">
+                    <h2>Egypt</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to Egypt.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 15.70 EGP</p>
+                </div>
+                <div id="nigeria" class="country-section">
+                    <h2>Nigeria</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to Nigeria.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 410.50 NGN</p>
+                </div>
+                <div id="pakistan" class="country-section">
+                    <h2>Pakistan</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to Pakistan.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 278.38 PKR</p>
+                </div>
+                <div id="bangladesh" class="country-section">
+                    <h2>Bangladesh</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to Bangladesh.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 117.40 BDT</p>
+                </div>
+                <div id="vietnam" class="country-section">
+                    <h2>Vietnam</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to Vietnam.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 25,550.00 VND</p>
+                </div>
+                <div id="ukraine" class="country-section">
+                    <h2>Ukraine</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to Ukraine.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 41.13 UAH</p>
+                </div>
+                <div id="russia" class="country-section">
+                    <h2>Russia</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to Russia.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 85.58 RUB</p>
+                </div>
+                <div id="morocco" class="country-section">
+                    <h2>Morocco</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to Morocco.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 9.94 MAD</p>
+                </div>
+                <div id="ghana" class="country-section">
+                    <h2>Ghana</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to Ghana.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 15.54 GHS</p>
+                </div>
+                <div id="kenya" class="country-section">
+                    <h2>Kenya</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to Kenya.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 129.89 KES</p>
+                </div>
+                <div id="sri-lanka" class="country-section">
+                    <h2>Sri Lanka</h2>
+                    <p>Information about remittance options, exchange rates, and key financial institutions for sending money to Sri Lanka.</p>
+                    <p><strong>Exchange Rate:</strong> 1 USD = 302.40 LKR</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onscroll = function() {myFunction()};
+    
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+    
+        function myFunction() {
+            if (window.scrollY >= sticky) {
+                navbar.classList.add("sticky");
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>

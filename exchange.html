@@ -131,7 +131,7 @@
             const amount = parseFloat(document.getElementById('amount').value);
             const currency = document.getElementById('currency').value;
             let rate = 0;
-            
+
             switch (currency) {
                 case 'USD':
                     rate = 0.74;
@@ -152,7 +152,7 @@
 
             const result = amount * rate;
             document.getElementById('result').innerText = `Result: ${amount} SGD = ${result.toFixed(2)} ${currency}`;
-            
+
             // Update local storage with new balances
             let sgdBalance = parseFloat(localStorage.getItem('SGD') || '0');
             let newSgdBalance = sgdBalance - amount;
@@ -163,6 +163,9 @@
             localStorage.setItem(currency, newForeignBalance);
 
             alert('Exchange successful! Balances have been updated.');
+
+            // Redirect to home page
+            window.location.href = 'home.html';
         }
     </script>
 </body>

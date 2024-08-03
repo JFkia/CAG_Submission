@@ -56,7 +56,7 @@
     <div class="flex-container">
         <div class="login-form">
             <h2 class="text-center mb-4">Login</h2>
-            <form action="/login">
+            <form onsubmit="handleLogin(event)">
                 <div class="mb-3">
                     <label for="name" class="form-label">Username:</label>
                     <input type="text" id="name" name="username" class="form-control" required>
@@ -65,11 +65,24 @@
                     <label for="password" class="form-label">Password:</label>
                     <input type="password" id="password" name="password" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-primary" onclick="location.href='home.html';">Login</button>
+                <button type="submit" class="btn btn-primary">Login</button>
             </form>
             <br>
-            <a href="/signup1.html"><button type="submit" class="btn btn-primary" onclick="location.href='signup.html';">Signup</button></a>
+            <a href="/signup1.html"><button class="btn btn-primary">Signup</button></a>
         </div>
     </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form from submitting
+            const username = document.getElementById('name').value; // Get the username from the input
+            if (username) {
+                localStorage.setItem('username', username); // Store the username in localStorage
+                window.location.href = 'home.html'; // Redirect to home.html
+            } else {
+                alert('Username is required'); // Alert if username is not entered
+            }
+        }
+    </script>
 </body>
 </html>

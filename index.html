@@ -56,7 +56,7 @@
     <div class="flex-container">
         <div class="login-form">
             <h2 class="text-center mb-4">Login</h2>
-            <form onsubmit="loginUser(event)">
+            <form onsubmit="handleLogin(event)">
                 <div class="mb-3">
                     <label for="name" class="form-label">Username:</label>
                     <input type="text" id="name" name="username" class="form-control" required>
@@ -73,13 +73,15 @@
     </div>
 
     <script>
-        function loginUser(event) {
-            event.preventDefault(); // Prevent form submission
-            const username = document.getElementById('name').value;
-            // Store the username in localStorage
-            localStorage.setItem('loggedInUser', username);
-            // Redirect to home page
-            window.location.href = 'home.html';
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form from submitting
+            const username = document.getElementById('name').value; // Get the username from the input
+            if (username) {
+                localStorage.setItem('username', username); // Store the username in localStorage
+                window.location.href = 'home.html'; // Redirect to home.html
+            } else {
+                alert('Username is required'); // Alert if username is not entered
+            }
         }
     </script>
 </body>

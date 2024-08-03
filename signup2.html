@@ -28,6 +28,8 @@
             font-weight: bold;
         }
         .signup-form input[type="text"],
+        .signup-form input[type="email"],
+        .signup-form input[type="phone"],
         .signup-form input[type="password"] {
             width: 100%;
             padding: 10px;
@@ -55,14 +57,18 @@
     <div class="flex-container">
         <div class="signup-form">
             <h2 class="text-center mb-4">Signup</h2>
-            <form action="/signup">
+            <form onsubmit="handleSignup(event)">
+                <div class="mb-3">
+                    <label for="user" class="form-label">Your username:</label>
+                    <input type="text" id="user" name="user" class="form-control" required>
+                </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Your email:</label>
-                    <input type="email" id="name" name="username" class="form-control" required>
+                    <input type="email" id="email" name="email" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="phoneNum" class="form-label">Phone Number:</label>
-                    <input type="phoneNum" id="phoneNum" name="phoneNum" class="form-control" required>
+                    <input type="tel" id="phoneNum" name="phoneNum" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password:</label>
@@ -71,9 +77,28 @@
                 <ul>
                     <li>8 or more characters</li>
                 </ul>
-                <button type="submit" class="btn btn-primary" onclick="location.href='signup3.html';">Signup</button>
+                <button type="submit" class="btn btn-primary">Signup</button>
             </form>
         </div>
     </div>
+
+    <script>
+        function handleSignup(event) {
+            event.preventDefault(); // Prevent form submission
+            const username = document.getElementById('user').value;
+            const email = document.getElementById('email').value;
+            const phoneNum = document.getElementById('phoneNum').value;
+            const password = document.getElementById('password').value;
+
+            // Store the values in localStorage
+            localStorage.setItem('username', username);
+            localStorage.setItem('email', email);
+            localStorage.setItem('phoneNum', phoneNum);
+            localStorage.setItem('password', password);
+
+            // Redirect to the next page (e.g., signup3.html)
+            window.location.href = 'signup3.html';
+        }
+    </script>
 </body>
 </html>

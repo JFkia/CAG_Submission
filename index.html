@@ -232,6 +232,23 @@
             navbar.classList.remove("sticky");
           }
         }
+
+        // Load and display balances from local storage
+        document.addEventListener('DOMContentLoaded', function() {
+            const sgdBalance = parseFloat(localStorage.getItem('SGD') || '0');
+            const usdBalance = parseFloat(localStorage.getItem('USD') || '0');
+            const eurBalance = parseFloat(localStorage.getItem('EUR') || '0');
+            const gbpBalance = parseFloat(localStorage.getItem('GBP') || '0');
+            const jpyBalance = parseFloat(localStorage.getItem('JPY') || '0');
+            const hkdBalance = parseFloat(localStorage.getItem('HKD') || '0');
+
+            document.querySelector('.currency-box p:nth-child(2)').innerText = `$${sgdBalance.toFixed(2)}`;
+            document.querySelectorAll('.currency-box')[1].querySelector('p:nth-child(2)').innerText = `$${usdBalance.toFixed(2)}`;
+            document.querySelectorAll('.currency-box')[2].querySelector('p:nth-child(2)').innerText = `$${eurBalance.toFixed(2)}`;
+            document.querySelectorAll('.currency-box')[3].querySelector('p:nth-child(2)').innerText = `$${gbpBalance.toFixed(2)}`;
+            document.querySelectorAll('.currency-box')[4].querySelector('p:nth-child(2)').innerText = `${jpyBalance.toFixed(2)} JPY`;
+            document.querySelectorAll('.currency-box')[5].querySelector('p:nth-child(2)').innerText = `$${hkdBalance.toFixed(2)}`;
+        });
         </script>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

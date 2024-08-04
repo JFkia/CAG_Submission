@@ -68,22 +68,47 @@
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-3">
-            <p class="btn btn-primary btn-block" onclick="location.href='paymentPaynow10.html';">$10</p>
-        </div>
-        <div class="col-md-3">
-            <p class="btn btn-primary btn-block" onclick="location.href='paymentPaynow30.html';">$30</p>
-        </div>
-        <div class="col-md-3">
-            <p class="btn btn-primary btn-block" onclick="location.href='paymentPaynow50.html';">$50</p>
-        </div>
-        <div class="col-md-3">
-            <p class="btn btn-primary btn-block" onclick="location.href='paymentPaynow100.html';">$100</p>
-        </div>
+    <div class="row-md-3">
+        <p class="btn btn-primary btn-block" onclick="topUp(10);">Top Up $10</p>
+    </div>
+    <div class="row-md-3">
+        <p class="btn btn-primary btn-block" onclick="topUp(30);">Top Up $10</p>
+    </div>
+    <div class="row-md-3">
+        <p class="btn btn-primary btn-block" onclick="topUp(50);">Top Up $10</p>
+    </div>
+    <div class="row-md-3">
+        <p class="btn btn-primary btn-block" onclick="topUp(100);">Top Up $10</p>
     </div>
 </div>
+
+<script>
+    function topUp(amount) {
+        // Get the current SGD balance or set to 0 if not found
+        let sgdBalance = parseFloat(localStorage.getItem('SGD') || '0');
+        
+        // Update the balance
+        sgdBalance += amount;
+        localStorage.setItem('SGD', sgdBalance);
+
+        // Get existing transactions or initialize an empty array
+        let transactions = JSON.parse(localStorage.getItem('transactions') || '[]');
+        
+        // Add the new transaction
+        const transaction = {
+            description: 'Top Up',
+            amount: `+$${amount}`,
+            currency: 'SGD',
+            date: new Date().toLocaleString()
+        };
+        transactions.push(transaction);
+        localStorage.setItem('transactions', JSON.stringify(transactions));
+
+        // Redirect to the home page
+        window.location.href = 'home.html';
+    }
+</script>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <title>Top Up Card</title>
+    <title>Payment Details</title>
     <style>
         .navbar-brand img {
             max-width: 50%;
@@ -12,8 +12,33 @@
         .navbar-nav .nav-item {
             padding-right: 50px;
         }
-        .content {
-            margin-top: 50px;
+        .card-details {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .card-details label {
+            font-weight: bold;
+        }
+        .card-details input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .card-details button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .card-details button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -24,7 +49,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
+  
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
@@ -44,11 +69,10 @@
                     ...
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="currencies.html">Currencies</a>
-                    <a class="dropdown-item" href="account.html">Account</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="settings.html">Settings</a>
-                </div>
+                  <a class="dropdown-item" href="currencies.html">Currencies</a>
+                  <a class="dropdown-item" href="account.html">Account</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="settings.html">Settings</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -63,56 +87,35 @@
     </div>
 </nav>
 
-<div class="container content text-center">
-    <div class="row">
-        <div class="col-md-12">
-            <img src="public/vm.png" alt="Visa/Mastercard Image" class="img-fluid">
-            <p>Use a Visa/Mastercard</p>
-            <br><br>
+<div class="card-details">
+    <h2>Payment Details</h2>
+    <br>
+    <form id="paymentForm">
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" required>
+            </div>
+            <div class="col-md-6">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" required>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <p class="btn btn-primary btn-block" onclick="topUp(10);">Top Up $10</p>
+        <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" class="form-control" id="cardNumber" name="cardNumber" required>
         </div>
-        <div class="col-md-3">
-            <p class="btn btn-primary btn-block" onclick="topUp(30);">Top Up $30</p>
+        <div class="form-group">
+            <label for="expirationDate">Valid Until</label>
+            <input type="text" class="form-control" id="expirationDate" name="expirationDate" placeholder="MM/YY" required>
         </div>
-        <div class="col-md-3">
-            <p class="btn btn-primary btn-block" onclick="topUp(50);">Top Up $50</p>
+        <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" class="form-control" id="cvv" name="cvv" required>
         </div>
-        <div class="col-md-3">
-            <p class="btn btn-primary btn-block" onclick="topUp(100);">Top Up $100</p>
-        </div>
-    </div>
+        <button type="submit" class="btn btn-primary" onclick="window.location.href='successCard.html'">Submit Payment</button>
+    </form>
 </div>
-
-<script>
-    function topUp(amount) {
-        // Get the current SGD balance or set to 0 if not found
-        let sgdBalance = parseFloat(localStorage.getItem('SGD') || '0');
-        
-        // Update the balance
-        sgdBalance += amount;
-        localStorage.setItem('SGD', sgdBalance);
-
-        // Get existing transactions or initialize an empty array
-        let transactions = JSON.parse(localStorage.getItem('transactions') || '[]');
-        
-        // Add the new transaction
-        const transaction = {
-            description: 'Top Up',
-            amount: `+$${amount}`,
-            currency: 'SGD',
-            date: new Date().toLocaleString()
-        };
-        transactions.push(transaction);
-        localStorage.setItem('transactions', JSON.stringify(transactions));
-
-        // Redirect to the home page
-        window.location.href = 'topupCard2.html';
-    }
-</script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
